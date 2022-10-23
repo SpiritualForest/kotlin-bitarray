@@ -22,4 +22,6 @@ fun main() {
     ba[32] = true
     println(ba)
     println(ba[32])
+
+    println("Testing GitHub workflows CI")
 }
