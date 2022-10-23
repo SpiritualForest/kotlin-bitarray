@@ -20,7 +20,7 @@ class BitArray(private val sizeInBits: Int) {
     }
 
     operator fun set(i: Int, value: Boolean) {
-        if ((i < 0) || (i > sizeInBits)) {
+        if ((i < 0) || (i >= sizeInBits)) {
             throw IndexOutOfBoundsException(i)
         }
         
