@@ -7,7 +7,7 @@ class BitArray(private val sizeInBits: Int) {
     private val list = MutableList(ceil(sizeInBits / 32f).toInt()) { 0 }
 
     operator fun get(i: Int): Boolean {
-        if ((i < 0) || (i > sizeInBits)) {
+        if ((i < 0) || (i >= sizeInBits)) {
             throw IndexOutOfBoundsException(i)
         }
 
@@ -37,12 +37,10 @@ class BitArray(private val sizeInBits: Int) {
     }
     
     override fun toString(): String {
-        var str = ""
-        for(x in list) {
-            val xbin = x.toString(2)
-            str += xbin
-            str += "0".repeat(32 - xbin.length)
+        val boolList: MutableList<Boolean> = mutableListOf()
+        for(i in 0 until sizeInBits) {
+            boolList.add(get(i))
         }
-        return str
+        return boolList.toString()
     }
 }
